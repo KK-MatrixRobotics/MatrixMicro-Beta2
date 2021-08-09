@@ -56,8 +56,8 @@ namespace ADS1015{
         i2cwrite2(ADS1015_ADDRESS, 0x01, val, 0x83);
 
         control.waitMicros(5000);
-        
-        i2cwrite(ADS1015_ADDRESS, 0x00);
+
+        pins.i2cWriteNumber(ADS1015_ADDRESS, 0x00, NumberFormat.UInt8LE)
 
         control.waitMicros(500);
 
