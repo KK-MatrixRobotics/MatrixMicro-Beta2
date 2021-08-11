@@ -1,7 +1,9 @@
 enum D_PORT{
     D1 = 0,
-    D2 = 1
-  }
+    D2 = 1,
+    A1 = 2,
+    A2 = 3
+}
 enum M_PORT{
     M1 = 0,
     M2 = 2
@@ -82,19 +84,34 @@ namespace Matrix{
 
 
     /**
-     *read data from D1 or D2
-     *@param pin [0-1] choose D1 or D2; eg: 0, 1
+     *read data from D1 or D2 or A1 or A2
+     *@param pin [0-3] choose D1 or D2 or A1 or A2; eg: 0, 1, 2, 3
     */
     //%block="read logic from |%pin|"
     //% weight=98 %blockID="Matrix_Dread"
     export function dread(pin: D_PORT): boolean{
         let Dpin = 0
 
-        if (pin) {
-            Dpin = pins.digitalReadPin(DigitalPin.P12)
-        }
-        else {
-            Dpin = pins.digitalReadPin(DigitalPin.P14)
+        switch(pin){
+            case 0: {
+                Dpin = pins.digitalReadPin(DigitalPin.P12)
+                break
+            }
+            case 1: {
+                Dpin = pins.digitalReadPin(DigitalPin.P14)
+                break
+            }
+            case 2: {
+                Dpin = (ADS1015.readPin(0) > 833) ? (0) : (1)
+                break
+            }
+            case 3: {
+                Dpin = (ADS1015.readPin(2) > 833) ? (0) : (1)
+                break
+            } 
+            default: {
+                break
+            }
         }
 
         if (Dpin) {

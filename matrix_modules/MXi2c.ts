@@ -11,8 +11,8 @@ namespace MXi2c{
         pins.i2cWriteNumber(addr, reg, NumberFormat.UInt8LE)
         return pins.i2cReadNumber(addr, NumberFormat.UInt8LE, false)
     }   
-
-    export function init(): void {
+    //TODO: add matrix i2c device
+    // export function init(): void {
         
-    }
+    // }
 }
