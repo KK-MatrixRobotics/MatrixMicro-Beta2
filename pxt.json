@@ -6,7 +6,11 @@
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "ws2812b": "github:microsoft/pxt-ws2812b#v0.1.1"
+        "ws2812b": "github:microsoft/pxt-ws2812b#v0.1.1",
+        "MatrixColor": "github:Matrix-Robotics/pxt-MatrixColor#main",
+        "MatrixMotion": "github:Matrix-Robotics/pxt-MatrixMotion#main",
+        "MatrixMotor": "github:Matrix-Robotics/pxt-MatrixMotor#main",
+        "MatrixServo": "github:Matrix-Robotics/pxt-MatrixServo#main"
     },
     "files": [
         "README.md",

@@ -1,15 +1,7 @@
 # MakeCode
 built
-yotta_modules
-yotta_targets
 pxt_modules
-_site
-*.db
-*.tgz
-.header.json
-.simstate.json
-Makefile
-_config.yml
-.vscode
-main.blocks
 node_modules
+.vscode
+package-lock.json
+projects

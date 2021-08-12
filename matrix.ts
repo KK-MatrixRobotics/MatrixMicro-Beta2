@@ -38,7 +38,7 @@ namespace Matrix{
         pins.digitalWritePin(DigitalPin.P16, 1)// pwm enable
 
         PCA9633.init()
-
+        
         RGB.setPixelColor(0, 0x000000)
         RGB.setPixelColor(1, 0x000000)
         RGB.show()
