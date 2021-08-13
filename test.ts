@@ -110,7 +110,7 @@ function next() {
         . # . . .
         . . # . .
         `);
-    while (!Matrix.dread(D_PORT.D2)) {}
+    while (!Matrix.dread(IO_PORT.D2)) {}
     basic.pause(500);
 }
 basic.showLeds(`

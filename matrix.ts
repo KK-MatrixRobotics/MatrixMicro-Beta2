@@ -1,8 +1,16 @@
 enum D_PORT{
     D1 = 0,
+    D2 = 1
+}
+enum IO_PORT{
+    D1 = 0,
     D2 = 1,
     A1 = 2,
     A2 = 3
+}
+enum V_Logic{
+    Low = 0,
+    High
 }
 enum M_PORT{
     M1 = 0,
@@ -21,7 +29,7 @@ enum LED{
     RGB2 = 1
 }
 
-//% weight=0 color=#0066CC icon="\uf2db" block="Matrix"
+//% weight=9 color=#0066CC icon="\uf2db" block="Matrix"
 namespace Matrix{
 
     function Init():void{
@@ -82,31 +90,30 @@ namespace Matrix{
         enableIT = true
     }
 
-
     /**
      *read data from D1 or D2 or A1 or A2
      *@param pin [0-3] choose D1 or D2 or A1 or A2; eg: 0, 1, 2, 3
     */
     //%block="read logic from |%pin|"
     //% weight=98 %blockID="Matrix_Dread"
-    export function dread(pin: D_PORT): boolean{
+    export function dread(pin: IO_PORT): boolean{
         let Dpin = 0
 
         switch(pin){
             case 0: {
-                Dpin = pins.digitalReadPin(DigitalPin.P12)
-                break
-            }
-            case 1: {
                 Dpin = pins.digitalReadPin(DigitalPin.P14)
                 break
             }
+            case 1: {
+                Dpin = pins.digitalReadPin(DigitalPin.P12)
+                break
+            }
             case 2: {
-                Dpin = (ADS1015.readPin(0) > 833) ? (0) : (1)
+                Dpin = (ADS1015.readPin(0) > 833) ? (1) : (0)
                 break
             }
             case 3: {
-                Dpin = (ADS1015.readPin(2) > 833) ? (0) : (1)
+                Dpin = (ADS1015.readPin(2) > 833) ? (1) : (0)
                 break
             } 
             default: {
@@ -115,13 +122,39 @@ namespace Matrix{
         }
 
         if (Dpin) {
-            return false
+            return true
         }
         else {
-            return true
+            return false
         }
     }
     
+    /**
+     *set output voltage to D1 or D2
+     *@param pin [0-1] choose D1 or D2; eg: 0, 1
+    *@param logic [0-1] voltage level; eg: 0, 1
+    */
+    //%block="set |%pin| to |%logic|"
+    //% weight=97 %blockID="Matrix_setDigital"
+    export function setDigital(pin: D_PORT, logic: V_Logic): void{
+        let out = 0
+        if (logic) {
+            out = 1
+        }
+        switch(pin){
+            case 0: {
+                pins.digitalWritePin(DigitalPin.P14 ,out)
+                break
+            }
+            case 1: {
+                pins.digitalWritePin(DigitalPin.P12, out)
+                break
+            }
+            default: {
+                break
+            }
+        }
+    }
 
     /**
      *set speed of DC Motor
