@@ -1,6 +1,6 @@
 {
     "name": "MatrixMicro",
-    "version": "1.0.33",
+    "version": "1.0.34",
     "description": "The extension for MATRIX Micro controller and micro:bit PXT target",
     "license": "MIT",
     "dependencies": {
