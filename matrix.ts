@@ -29,7 +29,7 @@ enum LED{
     RGB2 = 1
 }
 
-//% weight=9 color=#0066CC icon="\uf2db" block="Matrix"
+//% weight=30 color=#0066CC icon="\uf2db" block="Matrix"
 namespace Matrix{
 
     function Init():void{
