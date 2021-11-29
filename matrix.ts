@@ -265,6 +265,9 @@ namespace Matrix{
     //% g.min=0 g.max=255
     //% b.min=0 b.max=255
     export function showLED(led: LED, r: number, g: number, b: number): void{
+        r = Math.round(r)
+        g = Math.round(g)
+        b = Math.round(b)
         
         let rgb = r * 256 * 256 + g * 256 + b
         
