@@ -11,7 +11,7 @@
         "MatrixMotion": "github:Matrix-Robotics/pxt-MatrixMotion#v1.0.5",
         "MatrixMotor": "github:Matrix-Robotics/pxt-MatrixMotor#v1.0.5",
         "MatrixServo": "github:Matrix-Robotics/pxt-MatrixServo#v1.0.4",
-        "MatrixLaser": "github:Matrix-Robotics/pxt-MatrixServo#v1.0.0"
+        "MatrixLaser": "github:Matrix-Robotics/pxt-MatrixLaser#v1.0.0"
     },
     "files": [
         "README.md",
